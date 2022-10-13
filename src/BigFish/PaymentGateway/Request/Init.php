@@ -2,7 +2,7 @@
 /**
  * BIG FISH Payment Gateway (https://www.paymentgateway.hu)
  * PHP SDK
- * 
+ *
  * @link https://github.com/bigfish-hu/payment-gateway-php-sdk.git
  * @copyright (c) 2015, BIG FISH Internet-technology Ltd. (http://bigfish.hu)
  */
@@ -14,7 +14,7 @@ use BigFish\PaymentGateway\Data\Info;
 
 /**
  * Initialization request class
- * 
+ *
  * @package PaymentGateway
  * @subpackage Request
  */
@@ -22,7 +22,7 @@ class Init extends RequestAbstract
 {
 	/**
 	 * Store name
-	 * 
+	 *
 	 * @var string
 	 * @access public
 	 */
@@ -30,7 +30,7 @@ class Init extends RequestAbstract
 
 	/**
 	 * Provider name
-	 * 
+	 *
 	 * @var string
 	 * @access public
 	 */
@@ -38,7 +38,7 @@ class Init extends RequestAbstract
 
 	/**
 	 * Response URL
-	 * 
+	 *
 	 * @var string
 	 * @access public
 	 */
@@ -46,7 +46,7 @@ class Init extends RequestAbstract
 
 	/**
 	 * Notification URL
-	 * 
+	 *
 	 * @var string
 	 * @access public
 	 */
@@ -54,7 +54,7 @@ class Init extends RequestAbstract
 
 	/**
 	 * Amount
-	 * 
+	 *
 	 * @var float
 	 * @access public
 	 */
@@ -62,7 +62,7 @@ class Init extends RequestAbstract
 
 	/**
 	 * Order ID
-	 * 
+	 *
 	 * @var string
 	 * @access public
 	 */
@@ -70,7 +70,7 @@ class Init extends RequestAbstract
 
 	/**
 	 * User ID
-	 * 
+	 *
 	 * @var string
 	 * @access public
 	 */
@@ -78,7 +78,7 @@ class Init extends RequestAbstract
 
 	/**
 	 * Currency code
-	 * 
+	 *
 	 * @var string
 	 * @access public
 	 */
@@ -86,7 +86,7 @@ class Init extends RequestAbstract
 
 	/**
 	 * Language code
-	 * 
+	 *
 	 * @var string
 	 * @access public
 	 */
@@ -94,7 +94,7 @@ class Init extends RequestAbstract
 
 	/**
 	 * Phone number (MPP, OTPay)
-	 * 
+	 *
 	 * @var string
 	 * @access public
 	 */
@@ -102,7 +102,7 @@ class Init extends RequestAbstract
 
 	/**
 	 * Credit card number (OTP)
-	 * 
+	 *
 	 * @var string
 	 * @access public
 	 */
@@ -110,7 +110,7 @@ class Init extends RequestAbstract
 
 	/**
 	 * Credit card expiration date (OTP)
-	 * 
+	 *
 	 * @var string
 	 * @access public
 	 */
@@ -118,15 +118,15 @@ class Init extends RequestAbstract
 
 	/**
 	 * Credit card CVC code (OTP)
-	 * 
+	 *
 	 * @var string
-	 * @access public 
+	 * @access public
 	 */
 	public $otpCvc;
 
 	/**
 	 * Pocket ID (OTP)
-	 * 
+	 *
 	 * @var string
 	 * @access public
 	 */
@@ -134,23 +134,23 @@ class Init extends RequestAbstract
 
 	/**
 	 * Consumer Registration Id (OTP)
-	 * 
+	 *
 	 * @var string
 	 * @access public
 	 */
 	public $otpConsumerRegistrationId;
-	
+
 	/**
 	 * Cafeteria ID (MKBSZEP)
-	 * 
+	 *
 	 * @var integer
 	 * @access public
 	 */
 	public $mkbSzepCafeteriaId;
-	
+
 	/**
 	 * Card number (MKBSZEP)
-	 * 
+	 *
 	 * @var string
 	 * @access public
 	 */
@@ -158,15 +158,15 @@ class Init extends RequestAbstract
 
 	/**
 	 * Card CVV (MKBSZEP)
-	 * 
+	 *
 	 * @var string
-	 * @access public 
+	 * @access public
 	 */
 	public $mkbSzepCvv;
-	
+
 	/**
 	 * One-click payment state
-	 * 
+	 *
 	 * @var boolean
 	 * @access public
 	 */
@@ -182,7 +182,7 @@ class Init extends RequestAbstract
 
 	/**
 	 * One Click Payment Reference Id
-	 * 
+	 *
 	 * @var string
 	 * @access public
 	 */
@@ -214,7 +214,7 @@ class Init extends RequestAbstract
 
 	/**
 	 * Auto commit state
-	 * 
+	 *
 	 * @var boolean
 	 * @access public
 	 */
@@ -222,7 +222,7 @@ class Init extends RequestAbstract
 
 	/**
 	 * Extra data
-	 * 
+	 *
 	 * @var string
 	 * @access public
 	 */
@@ -238,8 +238,8 @@ class Init extends RequestAbstract
 
 	/**
 	 * Valid OneClickPayment providers
-	 * 
-	 * @var array 
+	 *
+	 * @var array
 	 * @access protected
 	 * @static
 	 */
@@ -257,10 +257,10 @@ class Init extends RequestAbstract
 		PaymentGateway::PROVIDER_WIRECARD,
 		PaymentGateway::PROVIDER_VIVAWALLET
 	);
-	
+
 	/**
 	 * BIG FISH Payment Gateway payment page (MKBSZEP)
-	 * 
+	 *
 	 * @var boolean
 	 * @access public
 	 */
@@ -281,10 +281,15 @@ class Init extends RequestAbstract
 	 * @access public
 	 */
 	public $moduleVersion;
+	/**
+	 * Proxy address
+	 * @var string
+	 */
+	public $proxyAddress;
 
 	/**
 	 * Construct new Init request instance
-	 * 
+	 *
 	 * @access public
 	 * @throws \BigFish\PaymentGateway\Exception
 	 */
@@ -336,7 +341,7 @@ class Init extends RequestAbstract
 
 	/**
 	 * Set the URL where Users will be sent back after payment
-	 * 
+	 *
 	 * @param string $responseUrl Response URL
 	 * (e.g. http://www.yourdomain.com/response.php, http://www.yourdomain.com/response.php?someparam=somevalue etc.)
 	 * @return Init
@@ -350,7 +355,7 @@ class Init extends RequestAbstract
 
 	/**
 	 * Set Notification URL
-	 * 
+	 *
 	 * @param string $notificationUrl
 	 * @return Init
 	 * @access public
@@ -363,7 +368,7 @@ class Init extends RequestAbstract
 
 	/**
 	 * Set payment transaction amount
-	 * 
+	 *
 	 * @param float $amount Transaction amount
 	 * @return Init
 	 * @access public
@@ -376,7 +381,7 @@ class Init extends RequestAbstract
 
 	/**
 	 * Set the identifier of the order in your system
-	 * 
+	 *
 	 * @param mixed $orderId Order identifier
 	 * @return Init
 	 * @access public
@@ -389,7 +394,7 @@ class Init extends RequestAbstract
 
 	/**
 	 * Set the identifier of the user in your system
-	 * 
+	 *
 	 * @param mixed $userId User identifier
 	 * @return Init
 	 * @access public
@@ -402,7 +407,7 @@ class Init extends RequestAbstract
 
 	/**
 	 * Set payment transaction currency
-	 * 
+	 *
 	 * @param string $currency Three-letter ISO currency code (e.g. HUF, USD etc.)
 	 * @return Init
 	 * @access public
@@ -415,7 +420,7 @@ class Init extends RequestAbstract
 
 	/**
 	 * Set the language
-	 * 
+	 *
 	 * @param string $language Language (e.g. HU, EN, DE etc.)
 	 * @return Init
 	 * @access public
@@ -429,7 +434,7 @@ class Init extends RequestAbstract
 	/**
 	 * Set the Mobile Payment or MasterCard Mobile identifier
 	 * Works with MPP, MPP2 and OTPay providers
-	 * 
+	 *
 	 * @param string $mppPhoneNumber Mobile Payment identifier (e.g. 123456789) or phone number of the user (e.g. 36301234567)
 	 * @return Init
 	 * @access public
@@ -443,7 +448,7 @@ class Init extends RequestAbstract
 	/**
 	 * Set the card number of the user
 	 * Works with OTP2 provider
-	 * 
+	 *
 	 * @param string $otpCardNumber Card number (e.g. 1111222233334444 or 1111 2222 3333 4444)
 	 * @return Init
 	 * @access public
@@ -457,7 +462,7 @@ class Init extends RequestAbstract
 	/**
 	 * Set the card expiration date
 	 * Works with OTP2 provider
-	 * 
+	 *
 	 * @param string $otpExpiration Expiration date - mm/yy (e.g. 0512 or 05/12)
 	 * @return Init
 	 * @access public
@@ -471,7 +476,7 @@ class Init extends RequestAbstract
 	/**
 	 * Set the card verification code
 	 * Works with OTP2 provider
-	 * 
+	 *
 	 * @param string $otpCvc Verification code (e.g. 123)
 	 * @return Init
 	 * @access public
@@ -511,11 +516,11 @@ class Init extends RequestAbstract
 		$this->otpConsumerRegistrationId = $otpConsumerRegistrationId;
 		return $this;
 	}
-	
+
 	/**
 	 * Set cafeteria id
 	 * Works with MKBSZEP provider
-	 * 
+	 *
 	 * @param integer $mkbSzepCafeteriaId
 	 * @return Init
 	 * @access public
@@ -525,11 +530,11 @@ class Init extends RequestAbstract
 		$this->mkbSzepCafeteriaId = (int)$mkbSzepCafeteriaId;
 		return $this;
 	}
-	
+
 	/**
 	 * Set the card number of the user
 	 * Works with MKBSZEP provider
-	 * 
+	 *
 	 * @param string $mkbSzepCardNumber Card number (e.g. 1111222233334444 or 1111 2222 3333 4444)
 	 * @return Init
 	 * @access public
@@ -539,11 +544,11 @@ class Init extends RequestAbstract
 		$this->mkbSzepCardNumber = $mkbSzepCardNumber;
 		return $this;
 	}
-	
+
 	/**
 	 * Set the card verification value
 	 * Works with MKBSZEP provider
-	 * 
+	 *
 	 * @param string $mkbSzepCvv Verification code (e.g. 123)
 	 * @return Init
 	 * @access public
@@ -553,7 +558,7 @@ class Init extends RequestAbstract
 		$this->mkbSzepCvv = $mkbSzepCvv;
 		return $this;
 	}
-	
+
 	/**
 	 * Enable or disable One Click Payment of the user
 	 *
@@ -631,11 +636,11 @@ class Init extends RequestAbstract
 		$this->referenceTransactionId = $referenceTransactionId;
 		return $this;
 	}
-	
+
 	/**
 	 * If true verifies the availability of funds and captures funds in one step.
 	 * If false verifies the availability of funds and reserves them for later capture.
-	 * 
+	 *
 	 * @param boolean $autoCommit true or false
 	 * @return Init
 	 * @access public
@@ -690,7 +695,7 @@ class Init extends RequestAbstract
 
 	/**
 	 * Set extra data
-	 * 
+	 *
 	 * @param array $extra Extra information (Except OTP2 provider)
 	 * @return Init
 	 * @access public
@@ -739,7 +744,7 @@ class Init extends RequestAbstract
 		if (!(in_array($this->providerName, self::$oneClickProviders) && isset($this->oneClickPayment) && $this->oneClickPayment)) {
 			unset($this->oneClickPayment);
 		}
-		
+
 		if (!(in_array($this->providerName, self::$oneClickProviders) && isset($this->oneClickReferenceId) && strlen($this->oneClickReferenceId))) {
 			unset($this->oneClickReferenceId);
 		}
@@ -755,7 +760,7 @@ class Init extends RequestAbstract
 		if (!(in_array($this->providerName, self::$oneClickProviders) && isset($this->referenceTransactionId) && strlen($this->referenceTransactionId))) {
 			unset($this->referenceTransactionId);
 		}
-		
+
 		unset($this->otpCardNumber);
 		unset($this->otpExpiration);
 		unset($this->otpCvc);

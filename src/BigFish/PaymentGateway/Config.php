@@ -2,7 +2,7 @@
 /**
  * BIG FISH Payment Gateway (https://www.paymentgateway.hu)
  * PHP SDK
- * 
+ *
  * @link https://github.com/bigfish-hu/payment-gateway-php-sdk.git
  * @copyright (c) 2015, BIG FISH Internet-technology Ltd. (http://bigfish.hu)
  */
@@ -12,7 +12,7 @@ use BigFish\PaymentGateway;
 
 /**
  * BIG FISH Payment Gateway Configuration
- * 
+ *
  * @property string $storeName Store name
  * @property string $apiKey API key
  * @property boolean $testMode Use testing environment (default: true)
@@ -21,13 +21,14 @@ use BigFish\PaymentGateway;
  * @property string $moduleName Module name
  * @property string $moduleVersion Module version
  * @property string $gatewayUrlTest Test service URL
+ * @property string $gatewayProxy Test service URL
  * @package PaymentGateway
  */
 class Config
 {
 	/**
 	 * Merchant's unique identifier used in Payment Gateway.
-	 * 
+	 *
 	 * @var string
 	 * @access protected
 	 */
@@ -35,7 +36,7 @@ class Config
 
 	/**
 	 * Private API key
-	 * 
+	 *
 	 * @var string
 	 * @access protected
 	 */
@@ -43,7 +44,7 @@ class Config
 
 	/**
 	 * Please change this to false in your production environment.
-	 * 
+	 *
 	 * @var boolean
 	 * @access protected
 	 */
@@ -53,7 +54,7 @@ class Config
 	 * Payment Gateway sends all messages in UTF-8 character encoding.
 	 * If your system uses a different character encoding, this parameter should be changed.
 	 * (e.g. ISO-8859-2)
-	 * 
+	 *
 	 * @var string
 	 * @access protected
 	 */
@@ -62,7 +63,7 @@ class Config
 	/**
 	 * It is used to encrypt sensitive data.
 	 * Each merchant has unique private and public keys.
-	 * 
+	 *
 	 * @var string
 	 * @access protected
 	 */
@@ -86,15 +87,21 @@ class Config
 
 	/**
 	 * Test service URL
-	 * 
+	 *
 	 * @var string
 	 * @access protected
 	 */
 	protected $gatewayUrlTest = PaymentGateway::GATEWAY_URL_TEST;
 
+    /**
+     * Proxy address used for the api requests
+     * @var string
+     * @access protected
+     */
+    protected $gatewayProxy = '';
 	/**
 	 * Constructor
-	 * 
+	 *
 	 * @param array $config
 	 * @access public
 	 */
@@ -109,7 +116,7 @@ class Config
 
 	/**
 	 * Set magic method
-	 * 
+	 *
 	 * @param string $name
 	 * @param string $value
 	 * @return void
@@ -128,7 +135,7 @@ class Config
 
 	/**
 	 * Get magic method
-	 * 
+	 *
 	 * @param string $name
 	 * @return string | null
 	 * @access public
